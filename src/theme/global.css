@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html { 
+  font-size: 62.5%; 
+}
+* {
+  font-family: 'Rubik', sans-serif;
+}
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #1B1B2D;
+  color: #E9E9EA;
+  font-size: 1.5rem;
+  overflow-x: hidden;
+}
+.wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style: none;
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.animated {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.shadow {
+  -webkit-box-shadow: 0px 2px 6px 2px rgba(92,112,133,0.1);
+  -moz-box-shadow: 0px 2px 6px 2px rgba(92,112,133,0.1);
+  box-shadow: 0px 2px 6px 2px rgba(92,112,133,0.1);
+}
+a {
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.text-center {
+  text-align: center;
+}
+.margin-center {
+  text-align: center;
+}
+.round-corners {
+  border-radius: 1.5rem;
+}
+/*********************** SPACINGS ***********************/
+.padding5 {
+  padding: 0.5rem 0;
+}
+.padding10 {
+  padding: 1rem 0;
+}
+.padding15 {
+  padding: 1.5rem 0;
+}
+.padding20 {
+  padding: 2rem 0;
+}
+.padding40 {
+  padding: 4rem 0;
+}
+.padding60 {
+  padding: 6rem 0;
+}
+.margin5 {
+  margin: 0.5rem 0;
+}
+.margin10 {
+  margin: 1rem 0;
+}
+.margin15 {
+  margin: 1.5rem 0;
+}
+.margin20 {
+  margin: 2rem 0;
+}
+.margin30 {
+  margin: 3rem 0;
+}
+.margin40 {
+  margin: 4rem 0;
+}
+.margin60 {
+  margin: 6rem 0;
+}
+
+/*********************** FONTS ***********************/
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
+}
+.weight500 {
+  font-weight: 500;
+}
+.weight400 {
+  font-weight: 400;
+}
+.font10 {
+  font-size: 1rem;
+}
+.font11 {
+  font-size: 1.1rem;
+}
+.font13 {
+  font-size: 1.3rem;
+}
+.font14 {
+  font-size: 1.4rem;
+}
+.font20 {
+  font-size: 2rem;
+}
+.font22 {
+  font-size: 2.2rem;
+}
+.font30 {
+  font-size: 3rem;
+}
+.font35 {
+  font-size: 3.5rem;
+}
+.font40 {
+  font-size: 4rem;
+}
+
+
+
+
+
+p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+
+/*********************** COLORS ***********************/
+a {
+  color: #2A3348;
+}
+.button a {
+  background-color: #EDF2F6;
+}
+.color-white {
+  color:#fff;
+}
+.color-grey {
+  color: #767681;
+}
+.color-greyer {
+  color: #B5B6DE;
+}
+.color-main {
+  color: #38F99C;
+}
+.bg-white {
+  background-color: #fff;
+}
+.bg-grey {
+  background-color: #767681;
+}
+.bg-dark {
+  background-color: #27273D;
+}
+.bg-darker {
+  background-color: #1B1B2D;
+}
+.bg-main {
+  background-color: #38F99C;
+}
+
+
+.color-red {
+  color: #FB5D59;
+}
+.color-blue {
+  color: #33D2FD;
+}
+.color-yellow {
+  color: #F9BA00;
+}
+.color-green {
+  color: #10CAB7;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 12vh;
+  padding-top: 6.7vh;
+  min-height: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Tabbar */
+ion-tab-bar {
+  height: 10vh;
+  min-height: 5rem;
+  width: 100%;
+  border: 0;
+  background-color: #27273D;
+}
+ion-tab-button {
+  background-color: #27273D;
+  margin: 0.6rem;
+  height: 8vh;
+  border-radius: 0.5rem;
+}
+ion-tab-bar{
+  --color-selected: #F9BA00 !important; 
+}
+ion-tab-button.tab-selected {
+  background-color: #1B1B2D;
+}
+
+
+
+
+
+/*********************** HOME ***********************/
+ion-content {
+  --ion-background-color: #1B1B2D;
+}
+
+/* Movie Counter */
+.counterBox {
+  width: 100%;
+  height: 14vh;
+  min-height: 10rem;
+  flex-direction: column;
+  padding-top: 2vh;
+  margin-top: 3.4vh;
+}
+.counterBox p:nth-child(1) {
+  font-size: 4.5rem;
+  margin-bottom: 0.5vh;
+}
+
+
+/* Movie Box */
