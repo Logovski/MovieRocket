@@ -3,15 +3,15 @@ import React from 'react';
 import '../theme/global.css';
 
 import Star from '../assets/star.svg'
-import Joker from '../assets/joker.png'
 
-const movieBoxWide = () => (
+const movieBoxWide = (props) => (
+  
   <div className="movie-box-wide bg-dark">
     <div className="movie-wide-poster flex-center">
-      <img src={Joker} alt="Poster" className="shadow" />
+      <img src={props.poster} alt="Poster" className="shadow" />
     </div>
     <div className="movie-wide-info">
-      <p className="margin10 color-white">The Joker</p>
+      <p className="margin10 color-white">{props.title}</p>
       <div className="movie-wide-rating">
         <img src={Star} alt="Star" />
         <img src={Star} alt="Star" />
@@ -19,11 +19,11 @@ const movieBoxWide = () => (
         <img src={Star} alt="Star" />
         <img src={Star} alt="Star" />
         <p className="font14 color-yellow">
-          7.<span className="font11">3</span>
+          {props.firstRating}.<span className="font11">{props.lastRating}</span>
         </p>
       </div>
-      <p className="font11 color-grey">Science | Action | Horror</p>
-      <p className="font11 color-grey">Realised: 2018</p>
+      <p className="font11 color-grey">{props.genre}</p>
+      <p className="font11 color-grey">Realised: {props.year}</p>
     </div>
   </div>
 );

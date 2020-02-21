@@ -12,11 +12,42 @@ import MovieBox from './MovieBox';
 import Arrow from '../assets/arrow.svg'
 
 
-const randomMoviesSwiper = () => {
+const randomMoviesSwiper = (props) => {
   const params = {
-      slidesPerView: 3.7,
-      spaceBetween: 15,
+    slidesPerView: 4,
+    spaceBetween: 20,
+    containerClass: "random-movies"
+  };
+  const movieData = props.randomMovies;
+  // Swipper
+  let randomMoviesSlider = null
+  if (movieData) {
+    randomMoviesSlider = (
+      <Swiper {...params}>
+        {
+          movieData.map(movie => {
+            
+            // If movie have long title split it and add '...'
+            if (movie.Title.length > 11) {
+              let moviefomated = movie.Title.substring(0, 10);
+              movie.Title = moviefomated + '...';
+            }
+            
+            return (
+              <MovieBox
+                key={movie.id}
+                poster={movie.Poster}
+                title={movie.Title}
+                runtime={movie.Runtime}
+                rated={movie.Rated}
+              ></MovieBox>
+            )
+          })
+        }
+      </Swiper>
+    )
   }
+
   return (
     <div>
       <div className="wrapper">
@@ -25,51 +56,7 @@ const randomMoviesSwiper = () => {
           <img src={Arrow} alt="Arrow" />
         </div>
       </div>
-      <Swiper className="swiper" {...params}>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-        <div>
-          <MovieBox />
-        </div>
-      </Swiper>
+      {randomMoviesSlider}
     </div>
   );
 }

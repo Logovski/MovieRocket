@@ -3,20 +3,23 @@ import React from 'react';
 import '../theme/global.css';
 
 import Star from '../assets/star.svg'
-import Joker from '../assets/joker.png'
 
 
 
-const movieBox = () => (
-  <div className="movie-box">
-    <div className="poster flex-center responsive-img">
-      <img src={Joker} alt="Poster" className="shadow" />
+const movieBox = props => (
+  <div className="swiper-slide">
+    <div className="poster">
+      <img src={props.poster} alt="Poster" className="shadow"/>
     </div>
-    <p className="font11 color-white">The Joker</p>
-    <div className="movie-info">
-      <p className="font10 color-grey">2:12min</p>
-      <img src={Star} alt="Star" />
-      <p className="font10 color-grey ">7.5</p>
+    <div className="info">
+      <p className="font13 color-white">{props.title}</p>
+      <div className="other-info">
+        <p className="font11 color-grey">{props.runtime}</p>
+        <div className="rating">
+          <img src={Star} alt="Star" />
+          <p className="color-yellow font11">{props.rated}</p>
+        </div>
+      </div>
     </div>
   </div>
 );
