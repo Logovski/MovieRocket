@@ -10,7 +10,7 @@ import Joker from '../assets/joker.png'
 const movieBox = () => (
   <div className="movie-box">
     <div className="poster flex-center responsive-img">
-      <img src={Joker} alt="Poster" />
+      <img src={Joker} alt="Poster" className="shadow" />
     </div>
     <p className="font11 color-white">The Joker</p>
     <div className="movie-info">

@@ -5,6 +5,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import Header from '../components/Header';
 import MovieCounter from '../components/MovieCounter';
 import Swiper from '../components/Swiper';
+import LastWatched from '../components/LastWatched';
 
 /* CSS */
 import '../theme/global.css';
@@ -18,6 +19,7 @@ const home = () => {
           <MovieCounter />
         </div>
         <Swiper />
+        <LastWatched />
       </IonContent>
     </IonPage>
   );
