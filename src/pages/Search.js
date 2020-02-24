@@ -69,7 +69,7 @@ class Search extends Component {
         <IonContent>
           <Input inputChanged={this.inputHandler} />
           <SwiperCategory />
-          <div className="wrapper">{searchResultBox}</div>
+          <div className="wrapper search-result">{searchResultBox}</div>
 
           <MovieModal
             active={this.state.modalActive}

@@ -10,6 +10,11 @@ const movieModal = (props) => {
   let poster = null;
   let title = null;
   let Rating = null;
+  let genre = null;
+  let time = null;
+  let description = null;
+  let director = null;
+  let actors = null;
 
   if(props.movie) {
     poster = <img src={props.movie.Poster} alt="Poster" />
@@ -20,19 +25,32 @@ const movieModal = (props) => {
         <span className="font11">{props.movie.Rated[2]}</span>
       </p>
     );
+    genre = <p className="font11">{props.movie.Genre.join(" | ")}</p>;
+    time = <p className="font11">{props.movie.Runtime}</p>;
+    description = <p className="font11 color-grey plot-text">{props.movie.Plot}</p>;
+    director = (
+      <p className="color-grey font11">
+        <span className="color-yellow font11">Director: </span>
+        {props.movie.Director}
+      </p>
+    );
+    actors = (
+      <p className="color-grey font11">
+        <span className="color-yellow font11">Actors: </span>
+        {props.movie.Actors.join(" , ")}
+      </p>
+    );
   }
 
-
-  
-console.log(props);
   return (
+
     <IonModal isOpen={props.active}>
       <Header
-        title="The Joker"
+        title="Movie Detail"
         close="true"
         closeIsClicked={() => props.closeModal()}
       />
-      <div className="wrapper">
+      <div className="wrapper test">
         <div className="movie-Detail">
           <div className="movie-detail-poster">{poster}</div>
           {title}
@@ -44,6 +62,14 @@ console.log(props);
             <img src={Star} alt="Star" />
             {Rating}
           </div>
+          <div className="movie-detail-genre">
+            {genre}
+            {time}
+          </div>
+          <p className="font14 margin10">Description</p>
+          {description}
+          {director}
+          {actors}
         </div>
       </div>
     </IonModal>
