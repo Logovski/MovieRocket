@@ -510,9 +510,7 @@ input {
   min-height: 6rem;
   border-radius: 0.5rem;
 }
-.search-result {
-  margin-bottom: 15vh;
-}
+
 
 
 
@@ -548,4 +546,7 @@ ion-modal {
 .plot-text {
   line-height: 2rem;
   margin-bottom: 1rem;
+}
+.ion-page {
+  padding-bottom: 10vh;
 }

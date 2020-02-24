@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "MovieRocket",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

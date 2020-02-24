@@ -3,7 +3,7 @@ import "../../theme/global.css";
 
 
 const categoryBox = props => (
-  <div className="swiper-slide">
+  <div onClick={props.categoryBoxClicked} className="swiper-slide">
     <div className="category-box flex-center bg-dark">
       <img src={props.icon} alt="category" />
     </div>
