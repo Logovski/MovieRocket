@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
-import Axios from 'axios';
+import axios from 'axios';
 
 /* COMPONENTS */
 import Header from '../components/Header';
@@ -17,21 +17,27 @@ class Home extends Component {
     totalMovies: null,
     randomMovies: null,
     lastMovie: null
+  };
+  componentDidMount() {
+    axios
+      .get("https://moviedatabase-eef3d.firebaseio.com/movies.json")
+      .then(Response => {
+        this.setState({ movieData: Response.data });
+        this.pullData();
+      });
   }
 
+  pullData = () => {
 
-
-  componentDidMount = () => {
-    Axios.get("https://moviedatabase-eef3d.firebaseio.com/.json")
-      .then(response => {
-        this.setState({movieData: response.data.movies})
-        this.setState({ totalMovies: this.state.movieData.length });
-        this.setState({
-          lastMovie: response.data.movies[response.data.movies.length-1]
-        });
-        this.getRandomeMovies();
-      })
-  }
+    localStorage.setItem("moviesData", JSON.stringify(this.state.movieData));
+    this.setState({ totalMovies: this.state.movieData.length });
+    this.setState({
+      lastMovie: this.state.movieData[this.state.movieData.length - 1]
+    });
+    localStorage.setItem("movieData", JSON.stringify(this.state.movieData));
+    this.getRandomeMovies();
+    
+  };
 
 
   // Get 10 Random movies from movies data then push it to state.randomMovies
@@ -44,13 +50,12 @@ class Home extends Component {
       moviesArray[i] = moviesArray[20 - n];
     }
     this.setState({ randomMovies: randomTen });
-  }
-
+  };
 
   render() {
-    let test = null;
-    if(this.state.lastMovie) {
-      test = <LastWatched lastMovie={this.state.lastMovie} />;
+    let justWatched = null;
+    if (this.state.lastMovie) {
+      justWatched = <LastWatched lastMovie={this.state.lastMovie} />;
     }
 
     return (
@@ -59,7 +64,7 @@ class Home extends Component {
         <IonContent>
           <MovieCounter moviesNumber={this.state.totalMovies} />
           <Swiper randomMovies={this.state.randomMovies} />
-          {test}
+          {justWatched}
         </IonContent>
       </IonPage>
     );

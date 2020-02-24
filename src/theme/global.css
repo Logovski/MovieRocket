@@ -179,7 +179,9 @@ a {
 .margin60 {
   margin: 6rem 0;
 }
-
+.margin-top15 {
+  margin-top: 1.5rem;
+}
 /*********************** FONTS ***********************/
 h1,h2,h3,h4,h5,h6 {
   font-weight: 500;
@@ -285,7 +287,15 @@ a {
   padding-top: 6.7vh;
   min-height: 5rem;
 }
-
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header img {
+  padding: 2rem 1rem 2rem 2rem;
+  cursor: pointer;
+}
 
 
 
@@ -426,10 +436,11 @@ ion-content {
 .movie-box-wide {
   width: 100%;
   height: 15.5vh;
-  margin-top: 2.5vh;
+  margin-top: 4.5vh;
   min-height: 100px;
   display: flex;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .movie-wide-poster {
@@ -456,4 +467,76 @@ ion-content {
 .movie-wide-rating img {
   margin-bottom: 0.4rem;
   margin-right: 0.5rem;
+}
+
+
+
+/* Search */
+input {
+  width: 100%;
+  height: 5.5rem;
+  border-radius: 0.5rem;
+  border: 0px;
+  background-color: #27273D;
+  margin-top: 2.2vh;
+  padding:0 8% 0 13%;
+  color: #F7C000;
+  font-size: 1.4rem;
+  outline: 0px;
+  background-image: url('../assets/search.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 1.3rem;
+  margin-bottom: 3vh;
+
+}
+::placeholder {
+  color: #EAEAEC;
+  font-size: 1.4rem;
+}
+
+
+
+/* Category Box */
+.category-swiper {
+  padding-left: 2rem;
+  margin: 0 auto;
+  max-width: 760px;
+  overflow-x: hidden;
+}
+.category-box {
+  width: 100%;
+  min-height: 6rem;
+  border-radius: 0.5rem;
+}
+
+
+
+
+
+/*********************** MOVIE MODAL ***********************/
+ion-modal {
+  --ion-background-color: #1B1B2D;
+}
+.movie-Detail {
+
+}
+.movie-detail-poster {
+  width: 86vw;
+  height: auto;
+  margin: 4vh 0 2vh 0;
+  border-radius: 1rem;
+
+}
+.movie-detail-poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+.ion-page {
+  display: block!important;
+}
+.movie-detail-rating img {
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
 }

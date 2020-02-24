@@ -8,7 +8,7 @@ const lastWatched = props => (
   <div>
     <div className="wrapper">
       <div className="box-header">
-        <h4 className="color-white font14 margin15">Last Watched</h4>
+        <h4 className="color-white font14 margin-top15">Last Watched</h4>
       </div>
       <MovieBoxWide
         title={props.lastMovie.Title}
