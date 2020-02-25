@@ -35,13 +35,14 @@ const randomMoviesSwiper = (props) => {
             
             return (
               <MovieBox
+                movieClicked={() => props.movieClicked(movie)}
                 key={movie.id}
                 poster={movie.Poster}
                 title={movie.Title}
                 runtime={movie.Runtime}
                 rated={movie.Rated}
               ></MovieBox>
-            )
+            );
           })
         }
       </Swiper>

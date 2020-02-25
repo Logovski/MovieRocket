@@ -49,9 +49,10 @@ class Search extends Component {
     this.setState({ modalActive: false });
     this.setState({ searchResult: [] });
     this.setState({ inputValue: "" });
+    window.location.reload();
   };
 
-  findAllGenres = (genre) => {
+  findAllGenres = genre => {
     if (this.state.movieData) {
       let result = [];
       for (let x = 0; x < this.state.movieData.length; x++) {
@@ -61,66 +62,22 @@ class Search extends Component {
           }
         }
       }
-      if(result.length === 0) {
+      if (result.length === 0) {
         result = [];
       }
       this.setState({ categoryGroup: result });
     }
-  }
+  };
 
-
-
-
-  categoryBoxClicked = (event) => {
+  // When user click on category box
+  categoryBoxClicked = event => {
     switch (event) {
-      case "Action":
+      case event:
         this.findAllGenres(event);
         break;
-      case "Adventure":
-        this.findAllGenres(event);
-        break;
-      case "Science":
-        this.findAllGenres(event);
-        break;
-      case "Horror":
-        this.findAllGenres(event);
-        break;
-      case "Comedy":
-        this.findAllGenres(event);
-        break;
-      case "Drama":
-        this.findAllGenres(event);
-        break;
-      case "Family":
-        this.findAllGenres(event);
-        break;
-      case "Sci-Fi":
-        this.findAllGenres(event);
-        break;
-      case "Romance":
-        this.findAllGenres(event);
-        break;
-      case "Biography":
-        this.findAllGenres(event);
-        break;
-      case "Thriller":
-        this.findAllGenres(event);
-        break;
-      case "Crime":
-        this.findAllGenres(event);
-        break;
-      case "Fantasy":
-        this.findAllGenres(event);
-        break;
-
       default:
-      // code block
     }
-  }
-
-
-
-
+  };
 
   render() {
     let searchResultBox = null;
@@ -139,7 +96,6 @@ class Search extends Component {
       ));
     }
 
-
     let searchGenre = null;
     if (this.state.categoryGroup.length !== 0) {
       searchGenre = this.state.categoryGroup.map(movie => (
@@ -155,10 +111,6 @@ class Search extends Component {
         />
       ));
     }
-
-
-
-
 
     return (
       <IonPage>

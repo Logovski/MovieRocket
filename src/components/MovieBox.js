@@ -7,7 +7,7 @@ import Star from '../assets/star.svg'
 
 
 const movieBox = props => (
-  <div className="swiper-slide">
+  <div className="swiper-slide" onClick={props.movieClicked}>
     <div className="poster">
       <img src={props.poster} alt="Poster" className="shadow"/>
     </div>
