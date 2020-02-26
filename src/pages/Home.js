@@ -8,6 +8,7 @@ import MovieCounter from '../components/MovieCounter';
 import Swiper from '../components/Swiper';
 import LastWatched from '../components/LastWatched';
 import MovieModal from "../components/Ui/Modal";
+import Spinner from "../components/Ui/Spinner";
 
 /* CSS */
 import '../theme/global.css';
@@ -59,12 +60,10 @@ class Home extends Component {
   closeModal = () => {
     this.setState({ clickedMovie: null });
     this.setState({ modalActive: false });
-    this.setState({ searchResult: [] });
-    this.setState({ inputValue: "" });
   };
 
   render() {
-    let justWatched = null;
+    let justWatched = <Spinner/>;
     if (this.state.lastMovie) {
       justWatched = (
         <LastWatched

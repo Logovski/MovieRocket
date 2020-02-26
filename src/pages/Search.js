@@ -7,6 +7,7 @@ import Input from "../components/Ui/Input";
 import SwiperCategory from "../components/CategorySwiper";
 import MovieBoxWide from '../components/MovieBoxWide';
 import MovieModal from '../components/Ui/Modal';
+import Spinner from "../components/Ui/Spinner";
 
 /* CSS */
 import "../theme/global.css";
@@ -22,20 +23,24 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    let getData = JSON.parse(localStorage.getItem("movieData"));
-    this.setState({ movieData: getData });
+    if(localStorage.movieData) {
+      let getData = JSON.parse(localStorage.getItem("movieData"));
+      this.setState({ movieData: getData });
+    }
   }
 
   inputHandler = event => {
     this.setState({ categoryGroup: [] });
     let result = [];
     this.setState({ inputValue: event.target.value });
-    for (let x = 0; x < this.state.movieData.length; x++) {
+    if(this.state.movieData) {
+      for (let x = 0; x < this.state.movieData.length; x++) {
       let movieTitle = this.state.movieData[x].Title.toLowerCase();
       let typedValue = event.target.value.toLowerCase();
       if (movieTitle.charAt(0) === typedValue.charAt(0)) {
         result.push(this.state.movieData[x]);
       }
+    }
     }
     this.setState({ searchResult: result });
   };
@@ -80,7 +85,7 @@ class Search extends Component {
   };
 
   render() {
-    let searchResultBox = null;
+    let searchResultBox = <Spinner/>;
     if (this.state.searchResult) {
       searchResultBox = this.state.searchResult.map(movie => (
         <MovieBoxWide
