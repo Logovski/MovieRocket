@@ -32,7 +32,7 @@ class Home extends Component {
   }
 
   pullData = () => {
-    localStorage.setItem("moviesData", JSON.stringify(this.state.movieData));
+    localStorage.setItem("movieData", JSON.stringify(this.state.movieData));
     this.setState({ totalMovies: this.state.movieData.length });
     this.setState({
       lastMovie: this.state.movieData[this.state.movieData.length - 1]

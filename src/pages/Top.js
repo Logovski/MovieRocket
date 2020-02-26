@@ -5,21 +5,18 @@ import { IonContent, IonPage } from "@ionic/react";
 import Header from "../components/Header";
 import MovieBoxWide from "../components/MovieBoxWide";
 import Spinner from "../components/Ui/Spinner"
+import MovieModal from "../components/Ui/Modal";
 
 /* CSS */
 import "../theme/global.css";
 
-
-
-
-
-
-
 class Top extends Component {
-  state={
+  state = {
     movieData: null,
-    sortedMovies: null
-  }
+    sortedMovies: null,
+    clickedMovie: null,
+    modalActive: false
+  };
 
   componentDidMount() {
     if (localStorage.movieData) {
@@ -34,10 +31,9 @@ class Top extends Component {
         }
       );
     }
-
   }
 
-  sortMovies = ( a, b )  => {
+  sortMovies = (a, b) => {
     if (a.Rated < b.Rated) {
       return 1;
     }
@@ -45,19 +41,18 @@ class Top extends Component {
       return -1;
     }
     return 0;
-  }
-
-
-
-
-
-
-
+  };
+  modalHandler = movie => {
+    this.setState({ clickedMovie: movie });
+    this.setState({ modalActive: true });
+  };
+  closeModal = () => {
+    this.setState({ clickedMovie: null });
+    this.setState({ modalActive: false });
+  };
 
   render() {
-    
-
-    let sortedMovies = <Spinner/>;
+    let sortedMovies = <Spinner />;
     if (this.state.sortedMovies) {
       sortedMovies = this.state.sortedMovies.map(movie => {
         return (
@@ -80,6 +75,11 @@ class Top extends Component {
         <Header title="Top Movies" />
         <IonContent>
           <div className="wrapper">{sortedMovies}</div>
+          <MovieModal
+            active={this.state.modalActive}
+            closeModal={this.closeModal}
+            movie={this.state.clickedMovie}
+          />
         </IonContent>
       </IonPage>
     );
