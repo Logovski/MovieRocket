@@ -32,25 +32,28 @@ class Home extends Component {
   }
 
   pullData = () => {
-    localStorage.setItem("movieData", JSON.stringify(this.state.movieData));
     this.setState({ totalMovies: this.state.movieData.length });
     this.setState({
       lastMovie: this.state.movieData[this.state.movieData.length - 1]
     });
     localStorage.setItem("movieData", JSON.stringify(this.state.movieData));
-    this.getRandomeMovies();
-  };
-
-  // Get 10 Random movies from movies data then push it to state.randomMovies
-  getRandomeMovies = () => {
-    var moviesArray = this.state.movieData;
-    var randomTen = [];
-    for (let n = 1; n <= 10; ++n) {
-      var i = Math.floor(Math.random() * (20 - n) + 1);
-      randomTen.push(moviesArray[i]);
-      moviesArray[i] = moviesArray[20 - n];
+    if(this.state.movieData) {
+      this.getRandomeMovies(this.state.movieData, 20);
     }
-    this.setState({ randomMovies: randomTen });
+  };
+  // Get 10 Random movies from movies data then push it to state.randomMovies
+  getRandomeMovies = (arr, n) => {
+    var result = new Array(n),
+      len = arr.length,
+      taken = new Array(len);
+    if (n > len)
+      throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+      var x = Math.floor(Math.random() * len);
+      result[n] = arr[x in taken ? taken[x] : x];
+      taken[x] = --len in taken ? taken[len] : len;
+    }
+    this.setState({ randomMovies: result });
   };
 
   modalHandler = movie => {

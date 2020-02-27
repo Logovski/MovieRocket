@@ -390,7 +390,13 @@ ion-content {
   min-width: 8rem !important;
   min-height: 17rem;
 }
+.poster {
+  min-width: 8rem;
+  min-height: 12.7rem;
+}
 .poster img {
+  min-width: 8rem;
+  min-height: 12.7rem;
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
@@ -399,7 +405,6 @@ ion-content {
   -webkit-box-shadow: 0px 3px 8px 1px rgba(7,8,31,0.9);
   -moz-box-shadow: 0px 3px 8px 1px rgba(7,8,31,0.9);
   box-shadow: 0px 3px 8px 1px rgba(7,8,31,0.9);
-
 }
 .info p {
   margin: 0px;
@@ -438,7 +443,7 @@ ion-content {
   width: 100%;
   height: 15.5vh;
   margin-top: 4.5vh;
-  min-height: 12rem;
+  min-height: 12.5rem;
   display: flex;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -566,8 +571,10 @@ ion-modal {
 
 
 
+
 .all-movie-box {
   width: 30%;
+  height: 27vh;
   margin: 1.5%;
   float: left;
 }
@@ -579,14 +586,18 @@ ion-modal {
 
 
 
-
-
-
-
-
-
-
-
+@media screen and ( min-width: 420px )
+{
+  .all-movie-box {
+    height: 30vh;
+  }
+}
+@media screen and ( min-width: 510px )
+{
+  .all-movie-box {
+    height: 34vh;
+  }
+}
 
 
 .loader {

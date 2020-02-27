@@ -8,8 +8,8 @@ import Star from '../assets/star.svg'
 
 const movieBox = props => (
   <div className="swiper-slide" onClick={props.movieClicked}>
-    <div className="poster">
-      <img src={props.poster} alt="Poster" className="shadow"/>
+    <div className="poster responsive-img">
+      <img src={props.poster} alt="Poster" className="shadow" />
     </div>
     <div className="info">
       <p className="font13 color-white">{props.title}</p>
