@@ -26,11 +26,13 @@ const randomMoviesSwiper = (props) => {
       <Swiper {...params}>
         {
           movieData.map(movie => {
-            
+            let formatedTitle;
             // If movie have long title split it and add '...'
             if (movie.Title.length > 10) {
               let moviefomated = movie.Title.substring(0, 9);
-              movie.Title = moviefomated + '...';
+              formatedTitle = moviefomated + "...";
+            }else {
+              formatedTitle = movie.Title;
             }
             
             return (
@@ -38,7 +40,7 @@ const randomMoviesSwiper = (props) => {
                 movieClicked={() => props.movieClicked(movie)}
                 key={movie.id}
                 poster={movie.Poster}
-                title={movie.Title}
+                title={formatedTitle}
                 runtime={movie.Runtime}
                 rated={movie.Rated}
               ></MovieBox>
